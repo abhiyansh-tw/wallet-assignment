@@ -1,0 +1,13 @@
+__pycache__/
+
+.idea/
+out/
+
+#Gradle
+gradle/
+gradlew
+gradlew.bat
+build/
+.gradle/
+
+.DS_Store
