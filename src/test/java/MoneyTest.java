@@ -13,4 +13,15 @@ public class MoneyTest {
     void shouldNotEquateTwoMoneyWithDifferentValue() {
         assertThat(new Money(100), is(not(equalTo(new Money(200)))));
     }
+
+    @Test
+    void shouldReturnMoneyOfValueTwoWhenTwoMoneyOfValueOneAreAdded() {
+        Money money = new Money(1);
+        Money anotherMoney = new Money(1);
+        Money expectedSum = new Money(2);
+
+        Money actualSum = money.add(anotherMoney);
+
+        assertThat(actualSum, is(equalTo(expectedSum)));
+    }
 }

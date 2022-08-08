@@ -19,4 +19,9 @@ public class Money {
     public int hashCode() {
         return Objects.hash(value);
     }
+
+    public Money add(Money that) {
+        int totalValue = this.value + that.value;
+        return new Money(totalValue);
+    }
 }
