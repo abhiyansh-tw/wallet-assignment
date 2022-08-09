@@ -2,10 +2,10 @@ public class Wallet {
     private Money balance;
 
     public Wallet() {
-        this.balance = new Money(0);
+        this.balance = Money.createRupee(0);
     }
 
-    public Money getBalance() {
+    public Money getBalanceInRupee() {
         return this.balance;
     }
 
