@@ -9,11 +9,11 @@ public class Money {
         this.currency = currency;
     }
 
-    public static Money createRupee(double value){
+    public static Money createRupee(double value) {
         return new Money(value, Currency.RUPEE);
     }
 
-    public static Money createDollar(double value){
+    public static Money createDollar(double value) {
         return new Money(value, Currency.DOLLAR);
     }
 
@@ -38,5 +38,19 @@ public class Money {
     public Money subtract(Money that) {
         double totalBaseValue = this.currency.convertToBaseValue(this.value) - that.currency.convertToBaseValue(that.value);
         return new Money(this.currency.convertFromBaseValue(totalBaseValue), this.currency);
+    }
+
+    private Money convertTo(Currency curr) {
+        double baseValue = this.currency.convertToBaseValue(this.value);
+        double convertedValue = curr.convertFromBaseValue(baseValue);
+        return new Money(convertedValue, curr);
+    }
+
+    public Money convertToRupee() {
+        return convertTo(Currency.RUPEE);
+    }
+
+    public Money convertToDollar() {
+        return convertTo(Currency.DOLLAR);
     }
 }

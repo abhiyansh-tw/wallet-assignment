@@ -6,7 +6,11 @@ public class Wallet {
     }
 
     public Money getBalanceInRupee() {
-        return this.balance;
+        return this.balance.convertToRupee();
+    }
+
+    public Money getBalanceInDollar() {
+        return this.balance.convertToDollar();
     }
 
     public void deposit(Money amount) {
