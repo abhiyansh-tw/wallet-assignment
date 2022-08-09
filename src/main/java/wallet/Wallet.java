@@ -1,3 +1,7 @@
+package wallet;
+
+import money.Money;
+
 public class Wallet {
     private Money balance;
 

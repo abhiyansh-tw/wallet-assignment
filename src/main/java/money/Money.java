@@ -1,3 +1,5 @@
+package money;
+
 import java.util.Objects;
 
 public class Money {

@@ -1,4 +1,8 @@
+package wallet;
+
+import money.Money;
 import org.junit.jupiter.api.Test;
+import wallet.Wallet;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

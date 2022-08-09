@@ -1,3 +1,6 @@
+package money;
+
+import money.Money;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
