@@ -36,4 +36,21 @@ public class WalletTest {
         Money actualBalance = wallet.getBalanceInRupee();
         assertThat(actualBalance, is(equalTo(expectedBalance)));
     }
+
+    @Test
+    void shouldHandleWithdrawalOfMoney() {
+        Wallet wallet = new Wallet();
+        wallet.deposit(Money.createRupee(100));
+        wallet.deposit(Money.createDollar(4));
+        Money withdrawalAmountRupee = Money.createRupee(10);
+        Money withdrawalAmountDollar = Money.createDollar(2);
+        Money expectedBalance = Money.createRupee(239.7);
+
+        Money withdrawnRupee = wallet.withdraw(withdrawalAmountRupee);
+        Money withdrawnDollar = wallet.withdraw(withdrawalAmountDollar);
+
+        assertThat(withdrawnRupee, is(equalTo(withdrawalAmountRupee)));
+        assertThat(withdrawnDollar, is(equalTo(withdrawalAmountDollar)));
+        assertThat(wallet.getBalanceInRupee(), is(equalTo(expectedBalance)));
+    }
 }

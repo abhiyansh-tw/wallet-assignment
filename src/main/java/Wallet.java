@@ -12,4 +12,9 @@ public class Wallet {
     public void deposit(Money amount) {
         this.balance = this.balance.add(amount);
     }
+
+    public Money withdraw(Money amount) {
+        this.balance = this.balance.subtract(amount);
+        return amount;
+    }
 }

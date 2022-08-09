@@ -48,4 +48,14 @@ public class MoneyTest {
 
         assertThat(actualSum, is(equalTo(expectedSum)));
     }
+    @Test
+    void shouldReturnZeroPointNineSevenDollarWhenTwoRupeeIsSubtractedFromOneDollar() {
+        Money twoRupee = Money.createRupee(2);
+        Money oneDollar = Money.createDollar(1);
+        Money expectedResult = Money.createDollar(0.97);
+
+        Money actualResult = oneDollar.subtract(twoRupee);
+
+        assertThat(actualResult, is(equalTo(expectedResult)));
+    }
 }

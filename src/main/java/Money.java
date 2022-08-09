@@ -34,4 +34,9 @@ public class Money {
         double totalBaseValue = this.currency.convertToBaseValue(this.value) + that.currency.convertToBaseValue(that.value);
         return new Money(this.currency.convertFromBaseValue(totalBaseValue), this.currency);
     }
+
+    public Money subtract(Money that) {
+        double totalBaseValue = this.currency.convertToBaseValue(this.value) - that.currency.convertToBaseValue(that.value);
+        return new Money(this.currency.convertFromBaseValue(totalBaseValue), this.currency);
+    }
 }
