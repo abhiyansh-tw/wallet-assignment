@@ -16,7 +16,7 @@ public class CurrencyTest {
 
     @Test
     void shouldConvertFromBaseValue() {
-        assertThat(Currency.RUPEE.convertFromBaseValue(10.0), is(equalTo(10)));
+        assertThat(Currency.RUPEE.convertFromBaseValue(10.0), is(equalTo(10.0)));
         assertThat(Currency.DOLLAR.convertFromBaseValue(50.0), is(equalTo(0.67)));
     }
 }
