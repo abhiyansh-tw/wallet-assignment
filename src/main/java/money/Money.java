@@ -2,6 +2,9 @@ package money;
 
 import java.util.Objects;
 
+import static money.Currency.DOLLAR;
+import static money.Currency.RUPEE;
+
 public class Money {
     private final double value;
     private final Currency currency;
@@ -12,11 +15,11 @@ public class Money {
     }
 
     public static Money createRupee(double value) {
-        return new Money(value, Currency.RUPEE);
+        return new Money(value, RUPEE);
     }
 
     public static Money createDollar(double value) {
-        return new Money(value, Currency.DOLLAR);
+        return new Money(value, DOLLAR);
     }
 
     @Override
@@ -33,13 +36,13 @@ public class Money {
     }
 
     public Money add(Money that) {
-        double totalBaseValue = this.currency.convertToBaseValue(this.value) + that.currency.convertToBaseValue(that.value);
-        return new Money(this.currency.convertFromBaseValue(totalBaseValue), this.currency);
+        double baseValue = this.currency.convertToBaseValue(this.value) + that.currency.convertToBaseValue(that.value);
+        return new Money(this.currency.convertFromBaseValue(baseValue), this.currency);
     }
 
     public Money subtract(Money that) {
-        double totalBaseValue = this.currency.convertToBaseValue(this.value) - that.currency.convertToBaseValue(that.value);
-        return new Money(this.currency.convertFromBaseValue(totalBaseValue), this.currency);
+        double baseValue = this.currency.convertToBaseValue(this.value) - that.currency.convertToBaseValue(that.value);
+        return new Money(this.currency.convertFromBaseValue(baseValue), this.currency);
     }
 
     private Money convertTo(Currency curr) {
@@ -49,10 +52,10 @@ public class Money {
     }
 
     public Money convertToRupee() {
-        return convertTo(Currency.RUPEE);
+        return convertTo(RUPEE);
     }
 
     public Money convertToDollar() {
-        return convertTo(Currency.DOLLAR);
+        return convertTo(DOLLAR);
     }
 }

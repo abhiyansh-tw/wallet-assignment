@@ -2,11 +2,13 @@ package wallet;
 
 import money.Money;
 
+import static money.Money.createRupee;
+
 public class Wallet {
     private Money balance;
 
     public Wallet() {
-        this.balance = Money.createRupee(0);
+        this.balance = createRupee(0);
     }
 
     public Money getBalanceInRupee() {
